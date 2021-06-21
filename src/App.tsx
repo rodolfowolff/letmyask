@@ -1,8 +1,14 @@
-import React from 'react';
+import { Button } from '../src/components/Button'
 
 function App() {
   return (
-    <h1>Hello Worldd</h1>
+    <div>
+      {/* 
+      <Button text={['1', '2', 'texto']}/>
+      */}
+      {/* <Button>Clique aqui</Button> */}
+      <Button /> 
+    </div>
   );
 }
 
