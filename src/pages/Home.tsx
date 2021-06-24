@@ -5,7 +5,7 @@ import { database } from '../services/firebase';
 
 import ilustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg'
+import googleIconImg from '../assets/images/google-icon.svg';
 
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
@@ -19,7 +19,7 @@ export function Home() {
 
   async function handleCreateRoom() {
     if(!user) {
-     await signWithGoogle()
+     await signWithGoogle();
     }
     history.push('/rooms/new');
   }
@@ -33,12 +33,17 @@ export function Home() {
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
-    if(!roomRef.exists()) {
+    if (!roomRef.exists()) {
       alert('Room does not exist.');
       return;
     }
 
-    history.push(`/rooms/${roomCode}`)
+    if (roomRef.val().endedAt) {
+      alert('Room already ended.');
+      return;
+    }
+
+    history.push(`/rooms/${roomCode}`);
   }
 
   return (
