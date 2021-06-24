@@ -1,4 +1,5 @@
-import { useEffect, useState, createContext, ReactNode  } from "react";
+import { useEffect, useState, createContext, ReactNode } from "react";
+import { Loading } from "../components/Loading";
 import { auth, firebase } from "../services/firebase";
 
 type User = {
@@ -19,14 +20,15 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
-  const [user, setUser] = useState<User>();
+  const [ user, setUser ] = useState<User>();
+  const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if(user) {
+      if (user) {
         const { displayName, photoURL, uid } = user;
 
-        if(!displayName || !photoURL) {
+        if (!displayName || !photoURL) {
           throw new Error('Missing information from Google Account.');
         }
 
@@ -35,9 +37,10 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           name: displayName,
           avatar: photoURL,
         })
+
+        setLoading(false);
       }
     })
-
     return () => {
       unsubscribe();
     }
@@ -48,24 +51,28 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
     const result = await auth.signInWithPopup(provider);
 
-      if(result.user) {
-        const { displayName, photoURL, uid } = result.user;
+    if (result.user) {
+      const { displayName, photoURL, uid } = result.user;
 
-        if(!displayName || !photoURL) {
-          throw new Error('Missing information from Google Account.');
-        }
-
-        setUser({
-          id: uid,
-          name: displayName,
-          avatar: photoURL,
-        })
+      if (!displayName || !photoURL) {
+        throw new Error('Missing information from Google Account.');
       }
+
+      setUser({
+        id: uid,
+        name: displayName,
+        avatar: photoURL,
+      })
     }
+  }
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
-<AuthContext.Provider value={{user, signWithGoogle}}>
-    {props.children}
-</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, signWithGoogle }}>
+      {props.children}
+    </AuthContext.Provider>
   )
 }

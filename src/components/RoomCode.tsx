@@ -7,10 +7,10 @@ type RoomCodeProps = {
 }
 
 export function RoomCode(props: RoomCodeProps) {
-  function copyRoomCodeToClipboard() {
-    navigator.clipboard.writeText(props.code)
-  }
 
+  function copyRoomCodeToClipboard() {
+    navigator.clipboard.writeText(props.code) && alert('copiado') 
+  }
 
   return (
     <button className="room-code" onClick={copyRoomCodeToClipboard}>

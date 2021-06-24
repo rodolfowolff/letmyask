@@ -1,5 +1,5 @@
-import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { FormEvent, useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -19,10 +19,17 @@ type RoomParms = {
 
 export function Room() {
   const { user } = useAuth();
+  const history = useHistory();
   const params = useParams<RoomParms>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/')
+    }
+  }, [user, history]);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
