@@ -1,12 +1,44 @@
-# Webpack + SWC
+<h1 align="center">
+    <img alt="Happy" title="Happy" src=".github/logo.svg" />
+</h1>
 
-ReactJS webpack configuration example using SWC (faster alternative to babel).
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-## Todo
+<p align="center">
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=15C3D6&labelColor=000000" alt="PRs welcome!" />
 
-- [ ] Add Hot Loading (Fast Refresh);
-- [ ] Add style loaders;
-- [ ] Add file loaders;
-- [ ] Production configuration;
-- [ ] Sourcemaps;
-- [ ] TypeScript paths;
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=15C3D6&labelColor=000000">
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Happy" src=".github/happy.png" width="100%">
+</p>
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## 💻 Projeto
+
+O letMyAsk é uma aplicação que ...
+
+## 🔖 Layout
+
+
+## 🧠 Desafio
+
+
+---
+
+Feito com ♥ by Rodolfo Wolff
