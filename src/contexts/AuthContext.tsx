@@ -1,5 +1,6 @@
 import { useEffect, useState, createContext, ReactNode } from "react";
-import { Loading } from "../components/Loading";
+// import { Loading } from "../components/Loading";
+// import PlaceholderLoading from 'react-placeholder-loading'
 import { auth, firebase } from "../services/firebase";
 
 type User = {
@@ -21,7 +22,7 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
   const [ user, setUser ] = useState<User>();
-  const [ loading, setLoading ] = useState(true);
+  // const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -38,7 +39,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           avatar: photoURL,
         })
 
-        setLoading(false);
+        // setLoading(false);
       }
     })
     return () => {
@@ -65,10 +66,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       })
     }
   }
-
-  if (loading) {
-    return <Loading />
-  }
+  // if (!loading) {
+  //   return <PlaceholderLoading shape="circle" width={60} height={60} />
+  // }
 
   return (
     <AuthContext.Provider value={{ user, signWithGoogle }}>
