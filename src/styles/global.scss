@@ -3,8 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 
-  // retira seleção de textos da tela
-  // comportamento de app
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -12,16 +10,16 @@
 }
 
 :root {
-  --primary: #453164;
-  --secundary: #984e9e;
-  --link: #ffb366;
+  --primary: #1310d9;
+  --secundary: #272d83;
+  --link: #8266ff;
 }
 
 html {
-  // a cada 1rem será considerado 1px
   font-size: 6.25%;
   height: 100vh;
 }
+
 body {
   font-size: 14rem;
 
@@ -40,6 +38,7 @@ a {
     color: var(--secundary);
   }
 }
+
 body,
 input,
 button,
