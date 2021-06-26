@@ -1,0 +1,106 @@
+#page-auth {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  main {
+    flex: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+
+      align-items: stretch;
+      text-align: center;
+
+      margin: 25rem;
+
+      > img {
+        align-self: center;
+        margin-bottom: 20rem;
+      }
+
+      .avatar {
+        border-radius: 50%;
+        width: 64px;
+        margin-top: 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin: 24px 0 24px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      form {
+        input {
+          height: 50px;
+          border-radius: 8px;
+          padding: 0 16px;
+          background: #fff;
+          border: 1px solid #a8a8b3;
+        }
+
+        button {
+          margin-top: 16px;
+        }
+
+        button,
+        input {
+          width: 100%;
+        }
+
+        p {
+          font-size: 14px;
+          color: #737380;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  .create-room {
+    background: #ea4335;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  .separator {
+    font-size: 14px;
+    color: #a8a8b3;
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+    &::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #a8a8b3;
+    }
+
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #a8a8b3;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+
+  #page-auth {
+    flex-direction: column;
+
+  }
+}

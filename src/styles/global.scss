@@ -2,13 +2,80 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  // retira seleção de textos da tela
+  // comportamento de app
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
+:root {
+  --primary: #453164;
+  --secundary: #984e9e;
+  --link: #ffb366;
+}
+
+html {
+  // a cada 1rem será considerado 1px
+  font-size: 6.25%;
+  height: 100vh;
+}
 body {
+  font-size: 14rem;
+
   background: #f8f8f8;
   color: #29292e;
+  margin-bottom: 40px;
 }
 
-body, input, button, textarea {
-  font: 400 16px 'Roboto', sans-serif;
+a {
+  font: 400 14rem "Roboto", sans-serif;
+  text-decoration: none;
+  color: var(--primary);
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--secundary);
+  }
+}
+body,
+input,
+button,
+textarea {
+  font: 400 16rem "Roboto", sans-serif;
+}
+
+input,
+textarea {
+  border: 2px solid var(--secundary) !important;
+  outline: 0;
+
+  &:focus {
+    border: 2px solid var(--link) !important;
+  }
+}
+
+.custom-scroll-bar {
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 10px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 5.5%;
+  }
 }

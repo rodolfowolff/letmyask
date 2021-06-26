@@ -1,0 +1,48 @@
+.button {
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: var(--secundary);
+  color: #fff;
+  padding: 0 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 0;
+
+  transition: filter 0.2s;
+
+  img {
+    margin-right: 8px;
+  }
+
+  &:not(:disabled):hover {
+    filter: brightness(0.95);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.outlined {
+    background: #fff;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+}
+
+.link {
+  margin: 0;
+  padding: 0px 15px;
+  background: transparent;
+  border: 0;
+  color: var(--primary);
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  height: 15px;
+}
